@@ -774,6 +774,21 @@ footer {
   .capability-row {
     justify-content: center;
   }
+  .section-head, .cta-copy {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-head .eyebrow, .cta-copy .eyebrow {
+    justify-content: center;
+  }
+  .cta-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-contact {
+    align-items: flex-start;
+  }
   .form-row {
     grid-template-columns: 1fr;
   }
