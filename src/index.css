@@ -756,6 +756,24 @@ footer {
   .hero {
     padding: 150px 0 70px;
   }
+  .hero .eyebrow {
+    justify-content: center;
+    text-align: center;
+  }
+  .hero h1 {
+    text-align: center;
+  }
+  .hero p.lede {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-ctas {
+    justify-content: center;
+  }
+  .capability-row {
+    justify-content: center;
+  }
   .form-row {
     grid-template-columns: 1fr;
   }
