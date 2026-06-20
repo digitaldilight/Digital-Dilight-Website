@@ -610,6 +610,8 @@ body.nav-open .burger span:nth-child(3) {
   letter-spacing: 0.04em;
 }
 .field input, .field select, .field textarea {
+  width: 100%;
+  box-sizing: border-box;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -768,6 +770,9 @@ footer {
   .nav-cta .btn-ghost {
     display: none;
   }
+  .nav-cta .btn-solid {
+    display: none; /* Hide header CTA on mobile to avoid overlap & hamburger cutout */
+  }
   .burger {
     display: block;
   }
@@ -819,7 +824,10 @@ footer {
     flex-direction: column;
     align-items: stretch;
     gap: 40px;
-    padding: 44px 28px;
+    padding: 32px 16px; /* Reduced to fit mobile viewport */
+  }
+  .form-card {
+    padding: 24px 20px; /* Reduced to fit mobile viewport and prevent horizontal scroll */
   }
   .form-row {
     grid-template-columns: 1fr;
