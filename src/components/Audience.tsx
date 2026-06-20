@@ -21,10 +21,7 @@ export const Audience: React.FC = () => {
         </div>
 
         {/* Industry image strip */}
-        <div
-          className="reveal"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px', marginBottom: '48px' }}
-        >
+        <div className="reveal industry-strip">
           <div style={{ borderRadius: '14px', overflow: 'hidden', aspectRatio: '4/3', position: 'relative' }}>
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75"

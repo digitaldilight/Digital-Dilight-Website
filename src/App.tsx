@@ -25,12 +25,18 @@ function App() {
       const targets = document.querySelectorAll('.reveal');
       targets.forEach((el) => obs.observe(el));
 
+      const btnTargets = document.querySelectorAll('.btn-animate');
+      btnTargets.forEach((el) => obs.observe(el));
+
       return () => {
         obs.disconnect();
       };
     } else {
       const targets = document.querySelectorAll('.reveal');
       targets.forEach((el) => el.classList.add('in-view'));
+
+      const btnTargets = document.querySelectorAll('.btn-animate');
+      btnTargets.forEach((el) => el.classList.add('in-view'));
     }
   }, []);
 

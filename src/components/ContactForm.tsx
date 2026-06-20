@@ -220,7 +220,7 @@ export const ContactForm: React.FC = () => {
                   ></textarea>
                 </div>
               </div>
-              <button className="btn btn-solid" type="submit" disabled={isSubmitting}>
+              <button className="btn btn-solid btn-animate" type="submit" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send it over'}
               </button>
               <p className="form-note">We reply to every single submission. No spam, ever.</p>

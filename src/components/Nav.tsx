@@ -68,17 +68,26 @@ export const Nav: React.FC = () => {
           display: isNavOpen ? 'flex' : 'none',
           background: 'var(--ink-2)',
           position: 'fixed',
-          top: '65px',
+          top: 0,
           left: 0,
           right: 0,
           bottom: 0,
           zIndex: 99,
+          padding: '100px 32px 36px',
         }}
       >
         <a href="#services" onClick={closeMenu}>Services</a>
         <a href="#process" onClick={closeMenu}>Process</a>
         <a href="#audience" onClick={closeMenu}>Who it's for</a>
         <a href="#contact" onClick={closeMenu}>Contact</a>
+        <a
+          className="btn btn-solid"
+          href="#contact"
+          style={{ width: 'max-content' }}
+          onClick={closeMenu}
+        >
+          Book a strategy call
+        </a>
       </div>
     </>
   );

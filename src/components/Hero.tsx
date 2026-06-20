@@ -27,13 +27,13 @@ export const Hero: React.FC = () => {
           digitaldilight runs your media buying, builds your creative, and shoots your video — every rupee in, tracked all the way through to profit out. Built for businesses of every kind that are serious about growth.
         </p>
         <div className="hero-ctas">
-          <a className="btn btn-solid" href="#contact">
+          <a className="btn btn-solid btn-animate" href="#contact">
             Book a strategy call{' '}
             <svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </a>
-          <a className="btn btn-ghost" href="#services">
+          <a className="btn btn-ghost btn-animate" href="#services">
             See what we do
           </a>
         </div>
