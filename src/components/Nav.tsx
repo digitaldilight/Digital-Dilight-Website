@@ -79,14 +79,6 @@ export const Nav: React.FC = () => {
         <a href="#process" onClick={closeMenu}>Process</a>
         <a href="#audience" onClick={closeMenu}>Who it's for</a>
         <a href="#contact" onClick={closeMenu}>Contact</a>
-        <a
-          className="btn btn-solid"
-          href="#contact"
-          style={{ width: 'max-content' }}
-          onClick={closeMenu}
-        >
-          Book a strategy call
-        </a>
       </div>
     </>
   );
