@@ -9,8 +9,50 @@ export const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const [nameError, setNameError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+
+  const validateName = (val: string) => {
+    if (!val) {
+      setNameError('');
+      return true;
+    }
+    // Allow name characters: letters, spaces, apostrophes ('), hyphens (-), and periods (.)
+    const nameRegex = /^[A-Za-z\s'\-\.]*$/;
+    const hasLetter = /[A-Za-z]/.test(val);
+    if (!nameRegex.test(val) || !hasLetter) {
+      setNameError('Please enter a valid name');
+      return false;
+    }
+    setNameError('');
+    return true;
+  };
+
+  const validatePhone = (val: string) => {
+    if (!val) {
+      setPhoneError('');
+      return true;
+    }
+    // Allow phone-number characters: digits 0-9 plus common formatting characters + ( ) - and spaces
+    const phoneRegex = /^[0-9+\(\)\-\s]+$/;
+    if (!phoneRegex.test(val)) {
+      setPhoneError('Please enter a valid phone number');
+      return false;
+    }
+    setPhoneError('');
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const isNameValid = validateName(name);
+    const isPhoneValid = validatePhone(phone);
+
+    if (!isNameValid || !isPhoneValid) {
+      return;
+    }
+
     setIsSubmitting(true);
 
     const formData = {
@@ -103,9 +145,19 @@ export const ContactForm: React.FC = () => {
                     id="nameInput"
                     type="text"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setName(val);
+                      validateName(val);
+                    }}
+                    onBlur={() => validateName(name)}
                     required
                   />
+                  {nameError && (
+                    <span style={{ color: 'var(--gold)', fontSize: '12.5px', marginTop: '4px' }}>
+                      {nameError}
+                    </span>
+                  )}
                 </div>
                 <div className="field">
                   <label htmlFor="phoneInput">Phone</label>
@@ -113,9 +165,19 @@ export const ContactForm: React.FC = () => {
                     id="phoneInput"
                     type="tel"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setPhone(val);
+                      validatePhone(val);
+                    }}
+                    onBlur={() => validatePhone(phone)}
                     required
                   />
+                  {phoneError && (
+                    <span style={{ color: 'var(--gold)', fontSize: '12.5px', marginTop: '4px' }}>
+                      {phoneError}
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="form-row">
