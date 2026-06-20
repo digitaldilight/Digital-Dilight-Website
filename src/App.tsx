@@ -13,23 +13,33 @@ function App() {
     // scroll reveal
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!prefersReduced) {
-      const obs = new IntersectionObserver((entries) => {
+      const revealObs = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add('in-view');
-            obs.unobserve(e.target);
+            revealObs.unobserve(e.target);
           }
         });
       }, { threshold: 0.15 });
 
+      const btnObs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            btnObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.01 }); // Low threshold for buttons to trigger quickly on mobile
+
       const targets = document.querySelectorAll('.reveal');
-      targets.forEach((el) => obs.observe(el));
+      targets.forEach((el) => revealObs.observe(el));
 
       const btnTargets = document.querySelectorAll('.btn-animate');
-      btnTargets.forEach((el) => obs.observe(el));
+      btnTargets.forEach((el) => btnObs.observe(el));
 
       return () => {
-        obs.disconnect();
+        revealObs.disconnect();
+        btnObs.disconnect();
       };
     } else {
       const targets = document.querySelectorAll('.reveal');
